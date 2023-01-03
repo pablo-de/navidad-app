@@ -16,7 +16,7 @@ def calcular():
     if request.method == "POST":
         # Obtener el día de la semana seleccionado del formulario
         dia_semana = request.form['dia_semana']
-        
+
         dia_semana = dia_semana.lower()
 
         # Convertir el día de la semana a un número (lunes es 0, martes es 1, etc.)
@@ -56,6 +56,11 @@ def calcular():
 
             return render_template('index.html', navidad=navidad.year, prox_navidad=prox_navidad.year, dia_semana=dia_semana)
     return render_template("index.html")
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template("error.html"), 404
 
 
 if __name__ == "__main__":
