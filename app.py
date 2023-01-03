@@ -5,12 +5,7 @@ app = Flask(__name__)
 app.secret_key = "JY&7HtLmVTugs#iW4ZRzfqh4"
 
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-
-@app.route('/calcular', methods=['POST'])
+@app.route('/', methods=['GET', 'POST'])
 def calcular():
     # Si el método de la solicitud es POST, procesar el formulario
     if request.method == "POST":
@@ -42,12 +37,15 @@ def calcular():
             # Obtener la fecha actual
             hoy = datetime.date.today()
 
+            # Obtener el año actual
+            ano_actual = datetime.datetime.now().year
+
             # Calcular la fecha de Navidad del año actual
             navidad = hoy.replace(month=12, day=24)
             prox_navidad = hoy.replace(month=12, day=24)
 
             # Si el día de la semana de Navidad es diferente del día de la semana seleccionado, aún no ha pasado este año
-            while navidad.weekday() != dia_semana_num:
+            while navidad.weekday() != dia_semana_num or navidad.year == ano_actual:
                 # Calcular la fecha de Navidad del año anterior
                 navidad = navidad.replace(year=navidad.year - 1)
 
