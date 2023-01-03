@@ -16,6 +16,8 @@ def calcular():
     if request.method == "POST":
         # Obtener el día de la semana seleccionado del formulario
         dia_semana = request.form['dia_semana']
+        
+        dia_semana.lower()
 
         # Convertir el día de la semana a un número (lunes es 0, martes es 1, etc.)
         dias_semana = {
@@ -31,7 +33,7 @@ def calcular():
         }
 
         # Si el día de la semana es inválido, mostrar un mensaje de error
-        if dia_semana.lower() not in dias_semana:
+        if dia_semana not in dias_semana:
             flash(f'El día de la semana ingresado es inválido. Por favor ingrese un día válido.', category='warning')
         else:
             # Obtener el número del día de la semana seleccionado
