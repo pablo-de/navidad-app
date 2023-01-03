@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<form method="post" action="{{url_for('calcular')}}" class="mx-auto w-50">
+    <div class="form-group">
+        <label for="dia_semana">Día de la semana:</label><br>
+        <input type="text" class="form-control" id="dia_semana" name="dia_semana" placeholder="Lunes, martes, etc..."
+            required><br>
+        <input type="submit" class="btn btn-primary align-middle" id="calcular-button" value="Calcular">
+    </div>
+</form>
+
+<div class="blockquote-container">
+    <blockquote class="blockquote">
+        {% if navidad %}
+        <p>❖ El último año en que las Fiestas fueron un {{ dia_semana }} fue en el año {{ navidad }}. El próximo año
+            que caerá en este día será en {{ prox_navidad }}.</p>
+        {% else %}
+        <!-- Alertas -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}" role="alert">
+            <button type="button" class="m1-2 mb-1 close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        {% endif %}
+    </blockquote>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+        $("#calcular-button").click(function () {
+            $(this).addClass("pirotecnia");
+            setTimeout(function () {
+                $("#calcular-button").removeClass("pirotecnia");
+            }, 500);
+        });
+    });
+</script>
+
+{% endblock %}

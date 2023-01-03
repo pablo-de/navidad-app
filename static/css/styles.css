@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Nerko+One&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Comfortaa", sans-serif;
+    color: white;
+}
+
+:root {
+    --3d-box-shadow: 0px 1px 2px #eee, 0px 2px 2px #e9e9e9, 0px 3px 2px #ccc,
+        0px 4px 2px #c9c9c9, 0px 5px 2px #bbb, 0px 6px 2px #b9b9b9, 0px 7px 2px #999,
+        0px 7px 2px rgba(0, 0, 0, 0.5), 0px 7px 2px rgba(0, 0, 0, 0.1),
+        0px 3px 5px rgba(0, 0, 0, 0.3), 0px 5px 10px rgba(0, 0, 0, 0.37),
+        0px 10px 10px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background: url("/static/assets/wallpaper.webp") no-repeat center top;
+    background-size: cover;
+}
+
+form {
+    background-color: rgba(25, 73, 2, 0.712);
+    margin-top: 90px;
+    width: 50%;
+    height: 250px;
+    border: 2px solid rgba(124, 7, 124, 0.918);
+    padding: 50px;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#calcular-button {
+    background-color: transparent;
+    border: 2px solid rgb(255, 255, 255);
+    margin: 0 auto;
+    display: inline-block;
+    text-align: center;
+}
+
+.blockquote-container {
+    max-width: 100%; /* establece el ancho máximo en 100% del ancho del contenedor */
+    max-height: 100%; /* establece la altura máxima en 100% de la altura del contenedor */
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.pirotecnia {
+    animation: pirotecnia 0.5s ease-in-out;
+}
+
+@keyframes pirotecnia {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
