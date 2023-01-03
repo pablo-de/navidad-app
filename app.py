@@ -17,7 +17,7 @@ def calcular():
         # Obtener el día de la semana seleccionado del formulario
         dia_semana = request.form['dia_semana']
         
-        dia_semana.lower()
+        dia_semana = dia_semana.lower()
 
         # Convertir el día de la semana a un número (lunes es 0, martes es 1, etc.)
         dias_semana = {
